@@ -7,7 +7,7 @@ from google import genai
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
-newsapi = "6deeb970bf87448f93d6b0134318b529"
+newsapi = "APIKEY-NEWSAPI"
 
 
 def speak(text):
@@ -15,7 +15,7 @@ def speak(text):
     engine.runAndWait()
 
 def aiProcess(command):
-    client = genai.Client(api_key="AIzaSyBd_TXafzL48KcpMn8N8nf14vJJ7rmf6og")
+    client = genai.Client(api_key="genAI-API key")
     response = client.models.generate_content(
     model="gemini-2.0-flash", contents=command
     )
@@ -38,7 +38,7 @@ def processCommand(c):
         webbrowser.open(link)
     
     elif "news" in c.lower():
-        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6deeb970bf87448f93d6b0134318b529")
+        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=APIKEY-NEWSAPI")
         if r.status_code == 200:
             data = r.json()
 
